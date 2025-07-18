@@ -67,6 +67,10 @@
 		link: [{ rel: "icon", type: "image/png" }],
 	});
 
+	definePageMeta({
+		middleware: "analytics",
+	})
+
 	const { $pwa, $PusherOnStart, $csrfFetch } = useNuxtApp();
 	const subject = encodeURIComponent("Contactverzoek via Portfolio");
 
