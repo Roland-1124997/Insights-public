@@ -1,30 +1,42 @@
 <template>
-	<div class="relative z-20 space-y-12 pb-16 pt-14 md:pt-16">
-		<section class="relative overflow-hidden rounded-[2rem] px-6 py-8 md:px-12 md:py-14">
-			<article class="relative z-10 grid items-center gap-8 md:grid-cols-[1.55fr_0.55fr]">
-				<div class="space-y-6">
-					<h1 class="mt-6 text-4xl font-extrabold leading-[0.9] text-blue-950 sm:text-5xl md:text-7xl">Ik bouw digitale producten die gewoon werken</h1>
+	<div class="relative z-20 mt-10 md:mt-20">
+		<section class="relative overflow-hidden rounded-[2rem] px-6 py-8 md:px-12">
+			<article class="relative z-10 grid items-center md:grid-cols-[1.8fr_0.55fr]">
+				<div class="space-y-5">
+					<h1 class="mt-6 text-4xl font-extrabold leading-[0.9] text-blue-950 sm:text-5xl md:text-7xl">
+						{{ profile.result.algemeen.tile }}
+					</h1>
 
-					<p class="max-w-2xl text-base leading-7 text-slate-700 md:text-lg">Ik ben Roland Meijer, software developer met focus op overzichtelijke interfaces, slimme architectuur en producten die echt waarde leveren. Deze portfolio laat zien hoe ik ideeën omzet in resultaat.</p>
-
-					<div class="flex flex-wrap gap-3 pt-1">
-						<UtilsButtonImportant :to="profile.algemeen.contact.cv" description="Bekijk mijn CV" iconName="akar-icons:cloud-download" />
-						<UtilsButtonImportant :to="profile.algemeen.contact.github" description="GitHub" iconName="akar-icons:github-fill" />
-						<UtilsButtonImportant :to="profile.algemeen.contact.email" description="Plan een gesprek" iconName="akar-icons:envelope" />
+					<div class="flex items-center gap-2 font-semibold text-blue-900 md:text-lg">
+						<icon name="akar-icons:location" class="h-4 w-4 text-blue-700" aria-hidden="true" />
+						<span>{{ profile.result.algemeen.locatie }}</span>
 					</div>
 
-					<div class="grid gap-3 pt-3 sm:grid-cols-3">
-						<div v-for="metric in profileStats" :key="metric.label" class="relative overflow-hidden rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 ">
-							
+					<p class="max-w-2xl text-base leading-7 text-slate-700 md:text-lg">{{ profile.result.algemeen.subtitle }}</p>
+
+					<div class="flex flex-wrap gap-3 pt-2">
+						<span v-for="value in profile.result.algemeen.contact" :key="value.label">
+							<UtilsButtonImportant v-if="!value.hidden" :to="value.url" :description="value.label" :iconName="value.iconName" />
+						</span>
+					</div>
+
+					<div class="grid gap-3 pt-3 sm:grid-cols-4">
+						<div v-for="metric in profile.stats" :key="metric.label" class="relative overflow-hidden rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3">
 							<p class="text-xs font-semibold uppercase tracking-[0.09em] text-slate-800">{{ metric.label }}</p>
 							<p class="mt-1 text-lg font-bold text-blue-900">{{ metric.value }}</p>
 						</div>
 					</div>
 				</div>
+
+				<div class="">
+					<Transition name="move-up">
+						<div v-if="animate" class="relative flex w-full md:-skew-x-3 md:-mt-16 flex-col items-center transition-all justify-center p-8">
+							<UtilsMockup src="/mock.png" class="size-full max-w-sm" />
+						</div>
+					</Transition>
+				</div>
 			</article>
 		</section>
-
-		
 	</div>
 </template>
 
@@ -55,66 +67,57 @@
 		],
 	});
 
-	const profile = {
-		algemeen: {
-			contact: {
-				email: "mailto:contact@roland-meijer.nl",
-				github: "https://github.com/Roland-1124997",
-				cv: "https://dashboard.roland-meijer.nl/attachments/CV-Roland-Meijer.pdf",
-			},
-		},
+	const profile = useProfile();
+	const animate = ref(false);
 
-		ervaringen: {
-			stages: [
-				{
-					bedrijf: "Tech Solutions",
-					periode: "Juni 2023 - Augustus 2023",
-					functie: "Software Development Intern",
-					taken: ["Ondersteunen bij het ontwikkelen van webapplicaties", "Samenwerken met het development team", "Testen en debuggen van code"],
-				},
-				{
-					bedrijf: "Innovatech",
-					periode: "Januari 2023 - Mei 2023",
-					functie: "Frontend Development Intern",
-					taken: ["Bouwen van gebruikersinterfaces", "Optimaliseren van de gebruikerservaring", "Implementeren van responsive design"],
-				},
-				{
-					bedrijf: "Data Insights",
-					periode: "September 2022 - December 2022",
-					functie: "Data Analysis Intern",
-					taken: ["Analyseren van datasets", "Visualiseren van data", "Ondersteunen bij het maken van datagedreven beslissingen"],
-				},
-			],
-			opleidingen: [
-				{
-					instelling: "Hoge School Rotterdam",
-					periode: "(2025 Sep) - heden",
-					graad: "AD Software Development",
-					vaardigheden: ["UX/UI", "Python", "Agile Methodologieën", "Teamwork en Communicatie", "Reflettie en Zelfontwikkeling", "Databases en API's", "Projectmanagement"],
-				},
-				{
-					instelling: "Grafisch Lyceum Rotterdam",
-					periode: "(2022 Sep) - (2025 Jun)",
-					graad: "MBO (4) Software Developer",
-					vaardigheden: ["JavaScript", "Webontwikkeling (HTML, CSS)", "Frameworks (React, Vue)", "Versiebeheer (Git)", "Backend ontwikkeling (Node.js, Php, C#)", "MVC-architectuur", "Probleemoplossing"],
-				},
-				{
-					instelling: "Da Vinci College Dordrecht",
-					periode: "(2020 Sep) - (2022 Jun)",
-					graad: "MBO (3) Allround system and devices",
-					vaardigheden: ["Virtualisatie", "Netwerken", "Basis javaScript", "Algemene IT-vaardigheden", "Beheer van apparatuur", "Ondersteunen van gebruikers"],
-				},
-			],
-		},
+	const isDesktopViewport = () => window.matchMedia("(min-width: 768px)").matches;
+
+	const updateAnimate = () => {
+		animate.value = isDesktopViewport();
 	};
 
-	const profileStats = [
-		{ label: "Ervaring", value: `${profile.ervaringen.stages.length} stages` },
-		{ label: "Opleidingen", value: `${profile.ervaringen.opleidingen.length} trajecten` },
-		{ label: "Focus", value: "Frontend + Fullstack" },
-	];
+	onMounted(() => {
+		updateAnimate();
+		window.addEventListener("resize", updateAnimate);
+	});
+
+	onBeforeUnmount(() => {
+		window.removeEventListener("resize", updateAnimate);
+	});
 </script>
 
-<style scoped>
-	
+<style>
+	.move-up-enter-active {
+		transition: all 0.5s ease-out;
+	}
+
+	.move-up-leave-active {
+		transition: all 0.5s ease-out;
+	}
+
+	.move-up-enter-from,
+	.move-up-leave-to {
+		transform: translateY(20px) skewX(-4deg);
+		opacity: 0;
+	}
+
+	.move-up-enter-to,
+	.move-up-leave-from {
+		transform: translateY(0) skewX(0deg);
+		opacity: 1;
+	}
+
+	@media (min-width: 768px) {
+		.move-up-enter-from,
+		.move-up-leave-to {
+			transform: translateY(40px) skewX(-8deg);
+			opacity: 0;
+		}
+
+		.move-up-enter-to,
+		.move-up-leave-from {
+			transform: translateY(0) skewX(-3deg);
+			opacity: 1;
+		}
+	}
 </style>

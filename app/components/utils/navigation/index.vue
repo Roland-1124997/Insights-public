@@ -9,13 +9,18 @@
 		</div>
 
 		<div class="flex items-center gap-2">
-			<UtilsButtonImportant to="http://localhost:3000" :description="user.success ? 'Dashboard' : 'Inloggen'" />
+			<span v-for="value in profile.result.algemeen.contact" :key="value.label">
+				<UtilsButtonImportant v-if="value.hidden" :hidden="true" :to="value.url" :description="value.label" :iconName="value.iconName" />
+			</span>
+
+			<UtilsButtonImportant to="https://dashboard.roland-meijer.nl" :description="user.success ? 'Dashboard' : 'Inloggen'" />
 		</div>
 	</header>
 </template>
 
 <script setup lang="ts">
 	const user = useUser();
+	const profile = useProfile();
 </script>
 
 <

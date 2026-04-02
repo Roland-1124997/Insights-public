@@ -16,9 +16,11 @@
 
 <script setup lang="ts">
 	const articles = useArtcles();
+	const profile = useProfile();
 	const user = useUser();
-
-	await user.init();
+	
 	await articles.init();
+	await profile.init();
+	await user.init();
 	
 </script>
