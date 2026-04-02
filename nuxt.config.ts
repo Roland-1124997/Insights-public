@@ -12,6 +12,9 @@ export default defineNuxtConfig({
   app: {
     head: {
       link: [
+        { rel: "icon", href: "https://dashboard.roland-meijer.nl/favicon.ico", sizes: "48x48" },
+        { rel: "icon", href: "https://dashboard.roland-meijer.nl/icons/icon_192-blue.png", sizes: "192x192" },
+
         { rel: "preconnect", href: "https://fonts.googleapis.com" },
         {
           rel: "preconnect",

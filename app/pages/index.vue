@@ -8,7 +8,7 @@
 					</h1>
 
 					<div class="flex items-center gap-2 font-semibold text-blue-900 md:text-lg">
-						<icon name="akar-icons:location" class="h-4 w-4 text-blue-700" aria-hidden="true" />
+						<icon name="akar-icons:location" class="w-4 h-4 text-blue-700" aria-hidden="true" />
 						<span>{{ profile.result.algemeen.locatie }}</span>
 					</div>
 
@@ -21,7 +21,7 @@
 					</div>
 
 					<div class="grid gap-3 pt-3 sm:grid-cols-4">
-						<div v-for="metric in profile.stats" :key="metric.label" class="relative overflow-hidden rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3">
+						<div v-for="metric in profile.stats" :key="metric.label" class="relative px-4 py-3 overflow-hidden border border-gray-200 rounded-2xl bg-gray-50">
 							<p class="text-xs font-semibold uppercase tracking-[0.09em] text-slate-800">{{ metric.label }}</p>
 							<p class="mt-1 text-lg font-bold text-blue-900">{{ metric.value }}</p>
 						</div>
@@ -30,8 +30,8 @@
 
 				<div class="">
 					<Transition name="move-up">
-						<div v-if="animate" class="relative flex w-full md:-skew-x-3 md:-mt-16 flex-col items-center transition-all justify-center p-8">
-							<UtilsMockup src="/mock.png" class="size-full max-w-sm" />
+						<div v-if="animate" class="relative flex flex-col items-center justify-center w-full p-8 transition-all md:-skew-x-3 md:-mt-16">
+							<UtilsMockup src="/mock.png" class="max-w-sm size-full" />
 						</div>
 					</Transition>
 				</div>
@@ -42,15 +42,15 @@
 
 <script setup lang="ts">
 	useSeoMeta({
-		title: "Portfolio - Profiel",
+		title: "Insights - Roland Meijer",
 		description: "Overzicht van profiel, vaardigheden, stages en opleidingen.",
-		ogTitle: "Portfolio - Profiel",
+		ogTitle: "Insights - Roland Meijer",
 		ogDescription: "Overzicht van profiel, vaardigheden, stages en opleidingen.",
 		ogUrl: "/",
-		ogImage: "/icons/icon_512-blue.png",
-		twitterTitle: "Portfolio - Profiel",
+		ogImage: "https://dashboard.roland-meijer.nl/icons/icon_512-blue.png",
+		twitterTitle: "Insights - Roland Meijer",
 		twitterDescription: "Overzicht van profiel, vaardigheden, stages en opleidingen.",
-		twitterImage: "/icons/icon_512-blue.png",
+		twitterImage: "https://dashboard.roland-meijer.nl/icons/icon_512-blue.png",
 		twitterCard: "summary_large_image",
 	});
 
@@ -62,7 +62,7 @@
 			{
 				rel: "icon",
 				type: "image/png",
-				href: "/icons/icon_512-blue.png",
+				href: "https://dashboard.roland-meijer.nl/icons/icon_512-blue.png",
 			},
 		],
 	});
