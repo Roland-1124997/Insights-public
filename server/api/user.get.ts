@@ -1,5 +1,5 @@
 export default defineEventHandler(async (event) =>
-    await $fetch("http://localhost:3000/api/user", {
+    await $fetch("https://dashboard.roland-meijer.nl/api/user", {
         headers: new Headers(getRequestHeaders(event) as HeadersInit),
     })
 
