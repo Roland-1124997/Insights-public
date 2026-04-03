@@ -1,6 +1,6 @@
 <template>
 	<div class="relative z-20 mt-[5.7rem] lg:mt-16 xl:mt-20">
-		<section class="relative overflow-hidden rounded-[2rem] px-6 py-8 md:px-12">
+		<section class="relative overflow-hidden rounded-[2rem] px-6 py-8 xl:px-12">
 			<article class="relative z-10 grid items-center md:grid-cols-[1.8fr_0.55fr]">
 				<div class="space-y-5">
 					<h1 class="mt-6 text-4xl font-extrabold leading-[0.9] text-blue-950 sm:text-5xl md:text-7xl">
@@ -19,21 +19,21 @@
 							<UtilsButtonImportant v-if="!value.hidden" :to="value.url" :description="value.label" :iconName="value.iconName" />
 						</span>
 					</div>
-
-					<div class="grid gap-3 pt-3 sm:grid-cols-4">
-						<div v-for="metric in profile.stats" :key="metric.label" class="relative px-4 py-3 overflow-hidden border border-gray-200 rounded-2xl bg-gray-50">
-							<p class="text-xs font-semibold uppercase tracking-[0.09em] text-slate-800">{{ metric.label }}</p>
-							<p class="mt-1 text-lg font-bold text-blue-900">{{ metric.value }}</p>
-						</div>
-					</div>
 				</div>
 
 				<div class="">
 					<Transition name="move-up">
-						<div v-if="animate" class="relative flex flex-col items-center justify-center w-full p-8 transition-all md:-skew-x-3 md:-mt-16">
+						<div v-if="animate" class="relative flex flex-col items-center justify-center w-full p-8 transition-all md:-skew-x-3 ">
 							<UtilsMockup src="/mock.png" class="max-w-sm size-full" />
 						</div>
 					</Transition>
+				</div>
+			</article>
+			
+			<article class="grid gap-3 pt-3 mt-5 sm:grid-cols-4">
+				<div v-for="metric in profile.stats" :key="metric.label" class="relative px-4 py-3 overflow-hidden border border-gray-200 rounded-2xl bg-gray-50">
+					<p class="text-xs font-semibold uppercase tracking-[0.09em] text-slate-800">{{ metric.label }}</p>
+					<p class="mt-1 text-lg font-bold text-blue-900">{{ metric.value }}</p>
 				</div>
 			</article>
 		</section>
@@ -67,6 +67,7 @@
 		],
 	});
 
+	const article = useArtcles();
 	const profile = useProfile();
 	const animate = ref(false);
 
