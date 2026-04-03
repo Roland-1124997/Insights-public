@@ -1,3 +1,11 @@
+const toSlug = (title: string) => {
+    return title.trim()
+        .replace(/\s*-\s*/g, "-")
+        .replace(/\s+/g, "-")
+        .replace(/[^A-Za-z0-9-]/g, "")
+        .replace(/-+/g, "-");
+};
+
 export const useArtcles = defineStore("useArtcles", () => {
     const url = "/api/articles";
     const Request = useApiHandler(url);
@@ -26,11 +34,16 @@ export const useArtcles = defineStore("useArtcles", () => {
 
     };
 
+
+    const getBySlug = (slug: string) => result.value.find((item) => toSlug(item.title) === slug);
+    
     return {
         result,
         loading,
         error,
         init,
         refresh,
+        toSlug,
+        getBySlug,
     };
 });

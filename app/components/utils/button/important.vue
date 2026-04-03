@@ -1,10 +1,10 @@
 <template>
-	<button @click="track(eventName)" v-if="isButton" :disabled="loading" :class="padding" class="flex items-center justify-center gap-2 text-sm font-medium text-white transition-colors duration-200 bg-blue-600 border border-blue-500 rounded-lg outline-none select-none disabled:cursor-not-allowed disabled:opacity-60 w-fit hover:bg-blue-700 hover:text-white focus:text-white focus:border-blue-600 hover:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400" :aria-label="description">
+	<button @click="track(eventName)" v-if="isButton" :disabled="loading" :class="[padding, reverse ? 'bg-white text-blue-600 border-blue-600 hover:bg-blue-50 hover:text-blue-700 focus:text-blue-700 focus:border-blue-700' : 'text-white bg-blue-600 border-blue-500 hover:bg-blue-700 hover:text-white focus:text-white focus:border-blue-600 hover:border-blue-600']" class="flex items-center justify-center gap-2 text-sm font-medium transition-colors duration-200 border rounded-lg outline-none select-none disabled:cursor-not-allowed disabled:opacity-60 w-fit focus:outline-none focus:ring-2 focus:ring-blue-400" :aria-label="description">
 		<icon v-if="iconName" :name="iconName" :class="loading ? ' animate-spin' : ''" class="w-5 h-5" aria-hidden="true" />
 		<span :class="hidden ? 'sr-only' : ''"> {{ description }} </span>
 	</button>
 
-	<NuxtLink @click="track(eventName)" role="button" v-else :to :class="padding" class="flex items-center justify-center gap-2 text-sm font-medium text-white transition-colors duration-200 bg-blue-600 border border-blue-500 rounded-lg outline-none select-none w-fit hover:bg-blue-700 hover:text-white focus:text-white focus:border-blue-600 hover:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400" :aria-label="description">
+	<NuxtLink @click="track(eventName)" role="button" v-else :to :class="[padding, reverse ? 'bg-white text-blue-600 border-blue-600 hover:bg-blue-50 hover:text-blue-700 focus:text-blue-700 focus:border-blue-700' : 'text-white bg-blue-600 border-blue-500 hover:bg-blue-700 hover:text-white focus:text-white focus:border-blue-600 hover:border-blue-600']" class="flex items-center justify-center gap-2 text-sm font-medium transition-colors duration-200 border rounded-lg outline-none select-none w-fit focus:outline-none focus:ring-2 focus:ring-blue-400" :aria-label="description">
 		<icon v-if="iconName" :name="iconName" class="w-5 h-5" aria-hidden="true" />
 		<span :class="hidden ? 'sr-only' : ''"> {{ description }} </span>
 	</NuxtLink>
@@ -20,8 +20,8 @@
 		loading: { type: Boolean, default: false },
 		hidden: { type: Boolean, default: false },
 		eventName: { type: String, default: null },
+		reverse: { type: Boolean, default: false },
 	});
-
 
 	const track = (eventName: string) => umTrackEvent(eventName);
 

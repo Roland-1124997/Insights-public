@@ -15,7 +15,7 @@
 	const activeId = defineModel<string | null>({ required: false, default: null });
 
 	defineProps<{
-		Anchors: Anchor[];
+		Anchors: any[];
 	}>();
 
 	const onItemClick = (node: any) => {

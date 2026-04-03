@@ -5,7 +5,9 @@
 				<img src="https://dashboard.roland-meijer.nl/svgs/icon_512-blue.svg" alt="Insights Logo" draggable="false" class="rounded-lg w-7 h-7" />
 			</div>
 
-			<h1 class="font-bold text-gray-950">roland-meijer.nl</h1>
+			<h1 class="font-bold text-gray-950">
+				<NuxtLink to="/">roland-meijer.nl</NuxtLink>
+			</h1>
 		</div>
 
 		<div class="flex items-center gap-2">
@@ -14,6 +16,7 @@
 			</span>
 
 			<UtilsButtonImportant to="https://dashboard.roland-meijer.nl" :eventName="'dashboard_access_click'" :description="user.success ? 'Dashboard' : 'Inloggen'" />
+			
 		</div>
 	</header>
 </template>

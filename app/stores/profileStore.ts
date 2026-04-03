@@ -3,6 +3,8 @@ export const useProfile = defineStore("useProfile", () => {
     const url = "/api/profile";
     const Request = useApiHandler(url);
 
+    const articles = useArtcles();
+
     const result = ref();
     const stats = computed(() => {
         if (!result.value) return [];
@@ -10,7 +12,7 @@ export const useProfile = defineStore("useProfile", () => {
         return [
             { label: "Ervaring", value: `${result.value.ervaringen.stages.length} stages` },
             { label: "Opleidingen", value: `${result.value.ervaringen.opleidingen.length} trajecten` },
-            { label: "Gerealiseerde projecten", value: "10 projecten" },
+            { label: "Gerealiseerde projecten", value: `${articles.result.length} projecten` },
             { label: "Focus", value: "Frontend + Fullstack" },
         ];
     });
