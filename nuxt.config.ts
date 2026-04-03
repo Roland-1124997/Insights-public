@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  modules: ['@nuxtjs/tailwindcss', '@nuxt/icon', '@nuxt/image', '@pinia/nuxt', "nuxt-umami"],
+  modules: ['@nuxtjs/tailwindcss', '@nuxt/icon', '@nuxt/image', '@pinia/nuxt', "nuxt-umami", "@nuxt/fonts"],
 
   umami: {
     id: process.env.UMAMI_ID,
@@ -17,7 +17,6 @@ export default defineNuxtConfig({
       excludeHash: true,
     },
   },
-
 
   app: {
     head: {
