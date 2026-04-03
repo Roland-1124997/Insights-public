@@ -21,7 +21,7 @@
 					</div>
 				</div>
 
-				<div class="">
+				<div class="hidden md:block">
 					<Transition name="move-up">
 						<div v-if="animate" class="relative flex flex-col items-center justify-center w-full p-8 transition-all md:-skew-x-3 md:-mt-[3.9rem]">
 							<UtilsMockup src="/mock.png" class="max-w-sm size-full" />
@@ -42,12 +42,11 @@
 			<div class="absolute inset-y-0 z-20 items-center hidden pt-10 pointer-events-none left-3 md:flex">
 				<div class="flex h-[92%] flex-col items-center justify-between pl-2">
 					<span class="text-base font-semibold uppercase tracking-[0.2em] text-blue-100/75 [writing-mode:vertical-rl] rotate-180">
-						<NuxtTime :datetime="item.updated_at" year="numeric" month="2-digit" day="2-digit" hour="numeric" minute="numeric"  class="font-semibold uppercase tracking-[0.2em] text-blue-100/75 [writing-mode:vertical-rl] rotate-180" />
+						<NuxtTime :datetime="item.updated_at" year="numeric" month="2-digit" day="2-digit" hour="numeric" minute="numeric" class="font-semibold uppercase tracking-[0.2em] text-blue-100/75 [writing-mode:vertical-rl] rotate-180" />
 					</span>
 					<span class="mb-[2.8rem] text-4xl font-black leading-none text-blue-100/85">{{ item.words }}</span>
 				</div>
 			</div>
-
 
 			<article class="relative z-10 p-2 sm:p-4 md:p-6">
 				<div class="grid items-center gap-8 md:grid-cols-[0.95fr_1.05fr] md:gap-16">
@@ -74,13 +73,13 @@
 
 						<div class="flex items-center gap-2 pt-1">
 							<UtilsButtonImportant :to="`/${article.toSlug(item.title)}`" :reverse="true" description="Meer informatie" iconName="akar-icons:eye" />
-							<UtilsButtonImportant v-if="user.success" :to="`https://dashboard.roland-meijer.nl//artikelen/opstellen?edit=${item.id}`" :reverse="true" target="_blank" :hidden="true" iconName="akar-icons:edit" />
+							<UtilsButtonImportant v-if="user.success" :to="`https://dashboard.roland-meijer.nl/artikelen/opstellen?edit=${item.id}`" :reverse="true" target="_blank" :hidden="true" iconName="akar-icons:edit" />
 						</div>
 					</div>
 
 					<div class="justify-center hidden md:flex" :class="index % 2 === 0 ? 'md:order-2' : 'md:order-1'">
 						<div class="w-full max-w-xl overflow-hidden border-4 rounded-lg border-blue-200/20">
-							<UtilsDesktopMockup :src="`https://dashboard.roland-meijer.nl${item.thumbnail_url}`" :alt="item.title" class="w-full h-full min-h-[220px] object-cover" loading="lazy" />
+							<UtilsDesktopMockup :src="item.thumbnail_url" :alt="item.title" class="w-full h-full min-h-[220px] object-cover" loading="lazy" />
 						</div>
 					</div>
 				</div>

@@ -6,6 +6,46 @@ const toSlug = (title: string) => {
         .replace(/-+/g, "-");
 };
 
+const toAbsoluteAttachmentUrl = (value?: string) => {
+    if (!value) return value;
+    if (/^https?:\/\//i.test(value)) return value;
+    if (value.startsWith("/attachments/")) return `https://dashboard.roland-meijer.nl${value}`;
+    return value;
+};
+
+const normalizeNodeImages = (node: any): any => {
+    if (!node || typeof node !== "object") return node;
+
+    const nextNode = { ...node };
+
+    if (nextNode.type === "image" && nextNode.attrs?.src) {
+        nextNode.attrs = {
+            ...nextNode.attrs,
+            src: toAbsoluteAttachmentUrl(nextNode.attrs.src),
+        };
+    }
+
+    if (Array.isArray(nextNode.content)) {
+        nextNode.content = nextNode.content.map((child: any) => normalizeNodeImages(child));
+    }
+
+    return nextNode;
+};
+
+const normalizeArticle = (article: any) => {
+    const nextArticle = { ...article };
+
+    nextArticle.thumbnail_url = toAbsoluteAttachmentUrl(nextArticle.thumbnail_url);
+
+    if (nextArticle.content) {
+        nextArticle.content = normalizeNodeImages(nextArticle.content);
+    }
+
+    return nextArticle;
+};
+
+const normalizeArticles = (articles: any[] = []) => articles.map((item) => normalizeArticle(item));
+
 export const useArtcles = defineStore("useArtcles", () => {
     const url = "/api/articles";
     const Request = useApiHandler(url);
@@ -21,7 +61,7 @@ export const useArtcles = defineStore("useArtcles", () => {
         const { data, error: Error } = (await Request.Get()) as any;
 
         if (Error) error.value = Error;
-        else result.value = data.data;
+        else result.value = normalizeArticles(data.data);
     };
 
     const init = async () => {
@@ -30,13 +70,13 @@ export const useArtcles = defineStore("useArtcles", () => {
         const { data, error: err } = (await useFetch(url)) as any;
 
         if (err.value) error.value = err.value;
-        else result.value = data.value.data;
+        else result.value = normalizeArticles(data.value.data);
 
     };
 
 
     const getBySlug = (slug: string) => result.value.find((item) => toSlug(item.title) === slug);
-    
+
     return {
         result,
         loading,
