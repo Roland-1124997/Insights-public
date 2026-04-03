@@ -23,12 +23,6 @@
 		},
 	});
 
-	// const props = withDefaults(defineProps<InteractiveGridPatternProps>(), {
-	// 	width: 80,
-	// 	height: 80,
-	// 	squares: () => [80, 80],
-	// });
-
 	const horizontal = computed(() => squares[0]);
 	const vertical = computed(() => squares[1]);
 

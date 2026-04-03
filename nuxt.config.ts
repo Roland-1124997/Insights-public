@@ -2,12 +2,22 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  modules: [
-    '@nuxtjs/tailwindcss',
-    '@nuxt/icon',
-    '@nuxt/image',
-    '@pinia/nuxt'
-  ],
+  modules: ['@nuxtjs/tailwindcss', '@nuxt/icon', '@nuxt/image', '@pinia/nuxt', "nuxt-umami"],
+
+  umami: {
+    id: process.env.UMAMI_ID,
+    host: process.env.UMAMI_HOST,
+    useDirective: true,
+    autoTrack: true,
+    enabled: true,
+    proxy: "cloak",
+    ignoreLocalhost: true,
+    urlOptions: {
+      excludeSearch: true,
+      excludeHash: true,
+    },
+  },
+
 
   app: {
     head: {
