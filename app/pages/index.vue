@@ -23,7 +23,7 @@
 
 				<div class="">
 					<Transition name="move-up">
-						<div v-if="animate" class="relative flex flex-col items-center justify-center w-full p-8 transition-all md:-skew-x-3 ">
+						<div v-if="animate" class="relative flex flex-col items-center justify-center w-full p-8 transition-all md:-skew-x-3 md:-mt-[3.9rem] ">
 							<UtilsMockup src="/mock.png" class="max-w-sm size-full" />
 						</div>
 					</Transition>
