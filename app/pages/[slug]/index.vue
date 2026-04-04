@@ -1,19 +1,18 @@
 <template>
-	<div>
-		<section class="relative z-20 bg-white md:pl-20 mt-[5.7rem] border p-3 lg:mt-12 xl:mt-20">
-			<article class="relative bg-white p-3 rounded-[2rem]">
-				<div v-if="editor">
-					<div class="grid grid-cols-1 md:grid-cols-[1fr_0.35fr] md:items-start">
-						<div class="z-10 md:px-16 md:border-r">
-							<div class="relative mt-1 overflow-x-hidden outline-none appearance-none md:mt-auto md:h-[83.5vh]">
-								<TiptapEditor :editor="editor" aria-label="Artkel inhoud" />
-							</div>
-						</div>
-						<div class="pl-4">
-							<TiptapTableList :Anchors="Anchors" />
-						</div>
+	<div class="">
+		<section class="relative z-20 md:pl-[4.7rem] md:pr-[3.5rem] mt-[3.5rem] md:p-3 lg:mt-12 xl:mt-[3rem]">
+			<article class="relative md:p-3">
+				<div v-if="editor" class="grid w-full gap-3 overflow-y-scroll md:h-[87.5vh] md:grid-cols-[1.009fr_0.45fr]">
+					<div class="px-6 pt-10 bg-white md:px-24 md:pt-10">
+						<TiptapEditor :editor="editor" aria-label="Artkel inhoud" />
+					</div>
+
+					<div class="sticky top-0 pl-4 pt-4 bg-white md:h-[78vh]">
+						<TiptapTableList :Anchors="Anchors" />
 					</div>
 				</div>
+
+				
 			</article>
 		</section>
 	</div>

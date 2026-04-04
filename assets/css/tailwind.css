@@ -7,7 +7,7 @@
 }
 
 ::-webkit-scrollbar {
-    @apply hidden;
+    @apply hidden
 }
 
 html {
@@ -50,15 +50,15 @@ li::marker {
 }
 
 .tiptap h1 {
-    @apply text-2xl font-bold text-black text-balance;
+    @apply mb-6 text-4xl md:text-[3rem] md:leading-10 font-bold text-black text-balance;
 }
 
 .tiptap h2 {
-    @apply text-xl font-semibold text-gray-800 text-balance;
+    @apply mb-2 text-2xl font-semibold text-gray-800 text-balance;
 }
 
 .tiptap h3 {
-    @apply text-lg font-semibold text-gray-800 text-balance;
+    @apply mb-2 text-lg font-semibold text-gray-800 text-balance;
 }
 
 .tiptap h4 {
@@ -82,7 +82,7 @@ li::marker {
 }
 
 .tiptap img {
-    @apply w-[99%] m-auto my-3 rounded-lg border bg-gray-50 md:min-h-[20vh];
+    @apply w-[99%] m-auto ring-2 ring-offset-2 my-6 ring-gray-200 rounded-lg bg-gray-50 md:min-h-[20vh];
 }
 
 .tiptap.ProseMirror img.ProseMirror-selectednode {

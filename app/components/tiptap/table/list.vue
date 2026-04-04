@@ -1,6 +1,6 @@
 <template>
 	<aside class="pl-2 select-none">
-		<nav class="mb-2 hidden md:inline md:w-64 h-[73vh] md:h-[76vh] overflow-y-auto">
+		<nav class="hidden mb-2 overflow-y-auto md:inline md:w-64">
 			<h1 class="mb-2 text-lg font-semibold">Inhoudsopgave</h1>
 
 			<ul v-if="Anchors.length > 1" class="flex flex-col space-y-1 overflow-auto">
