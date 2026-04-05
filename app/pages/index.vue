@@ -99,7 +99,7 @@
 		twitterTitle: "Insights - Roland Meijer",
 		twitterDescription: "Overzicht van profiel, vaardigheden, stages en opleidingen.",
 		twitterImage: "https://dashboard.roland-meijer.nl/icons/icon_512-blue.png",
-		twitterCard: "summary_large_image",
+		twitterCard: "app",
 	});
 
 	useHead({

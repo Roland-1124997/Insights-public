@@ -20,17 +20,43 @@
 	import { getHierarchicalIndexes, TableOfContents } from "@tiptap/extension-table-of-contents";
 	import { Editor } from "@tiptap/vue-3";
 
+	const route = useRoute();
+	const slug = route.params.slug as string;
+	const article = useArtcles();
+	const result = article.getBySlug(slug);
+
+	const seoTitle = `Insights - ${result?.title ?? "Artikel"}`;
+	const seoDescription = result?.description.slice(0, 155) ?? "Lees dit artikel.";
+	const seoImage = result?.thumbnail_url ?? "/icons/icon_512-blue.png";
+	const seoUrl = `/${slug}`;
+
+	const image = useState(`article-${slug}-image`, () => seoImage);
+
+	if(import.meta.server) {
+		image.value = defineOgImage("Article.takumi", {
+			title: result?.title ?? "Artikel",
+			category: result?.topics.slice(-4) ?? ["Algemeen"],
+			author: "Roland Meijer",
+			publishedTime: result?.created_at ? new Date(result.created_at).toLocaleDateString("nl-NL", { year: "numeric", month: "long", day: "numeric" }) : "",
+		});
+	}
+
 	useSeoMeta({
-		title: "Insights - Artikel Opstellen",
-		description: "Schrijf een nieuw artikel of blog post voor je website.",
-		ogTitle: "Insights - Artikel Opstellen",
-		ogDescription: "Schrijf een nieuw artikel of blog post voor je website.",
-		ogUrl: "/artikelen/opstellen",
-		ogImage: "/icons/icon_512-blue.png",
-		twitterTitle: "Insights - Artikel Opstellen",
-		twitterDescription: "Schrijf een nieuw artikel of blog post voor je website.",
-		twitterImage: "/icons/icon_512-blue.png",
-		twitterCard: "app",
+		title: seoTitle,
+		description: seoDescription,
+		ogTitle: seoTitle,
+		ogDescription: seoDescription,
+		ogUrl: seoUrl,
+		ogImage: image.value[0],
+		articleTag: result?.topics ?? [],
+		articlePublishedTime: result?.created_at ? new Date(result.created_at).toISOString() : undefined,
+		articleModifiedTime: result?.updated_at ? new Date(result.updated_at).toISOString() : undefined,
+		author: "Roland Meijer",
+		themeColor: "#1e40af",
+		twitterTitle: seoTitle,
+		twitterImage: image.value[0],
+		twitterDescription: seoDescription,
+		twitterCard: "summary_large_image",
 	});
 
 	useHead({
@@ -39,34 +65,32 @@
 		},
 		link: [
 			{
+				rel: "canonical",
+				href: seoUrl,
+			},
+			{
 				rel: "icon",
 				type: "image/png",
-				href: "/icons/icon_512-blue.png",
+				href: seoImage,
 			},
 		],
 	});
 
 	const activeId = ref<string | null>(null);
 	const isActiveAnchor = ref();
-	
 
 	watch(isActiveAnchor, (newValue) => {
 		if (newValue) activeId.value = newValue.id;
 	});
 
 	watch(activeId, (newValue) => {
-		if (newValue) {
-			if (history.pushState) history.pushState(null, "", `#${newValue}`);
-		}
+		if (newValue) history.replaceState(history.state, "", `#${newValue}`);
 	});
 
-	const slug = useRoute().params.slug as string;
-	const article = useArtcles();
-	const result = article.getBySlug(slug);
 	const isMobileViewport = ref(false);
 
 	let viewportMediaQuery: MediaQueryList | null = null;
-	
+
 	const getScrollParent = () => {
 		if (isMobileViewport.value) return window;
 
