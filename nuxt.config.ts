@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  modules: ['@nuxtjs/tailwindcss', '@nuxt/icon', '@nuxt/image', '@pinia/nuxt', "nuxt-umami", "@nuxt/fonts"],
+  modules: ['@nuxtjs/tailwindcss', '@nuxt/icon', '@nuxt/image', '@pinia/nuxt', "nuxt-umami", "@nuxt/fonts", 'nuxt-og-image'],
 
   umami: {
     id: process.env.UMAMI_ID,
@@ -17,6 +17,11 @@ export default defineNuxtConfig({
       excludeHash: true,
     },
   },
+
+  site: {
+    url: 'https://roland-meijer.nl/',
+    name: 'Insights',
+  }, 
 
   app: {
     head: {
