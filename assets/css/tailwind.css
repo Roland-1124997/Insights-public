@@ -12,6 +12,8 @@
 
 html {
     scroll-behavior: smooth;
+    min-height: calc(100% + env(safe-area-inset-top));
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 
 
@@ -50,19 +52,19 @@ li::marker {
 }
 
 .tiptap h1 {
-    @apply mb-6 text-4xl md:text-[3rem] md:leading-10 font-bold text-black text-balance;
+    @apply mb-6 text-4xl md:text-[3rem] md:leading-10 font-bold text-black text-balance scroll-m-40 md:scroll-m-24;
 }
 
 .tiptap h2 {
-    @apply mb-2 text-2xl font-semibold text-gray-800 text-balance;
+    @apply mb-2 text-2xl font-semibold text-gray-800 text-balance scroll-m-32 md:scroll-m-4;
 }
 
 .tiptap h3 {
-    @apply mb-2 text-lg font-semibold text-gray-800 text-balance;
+    @apply mb-2 text-lg font-semibold text-gray-800 text-balance scroll-m-32 md:scroll-m-4;
 }
 
 .tiptap h4 {
-    @apply text-base italic font-semibold text-gray-600 text-balance;
+    @apply text-base italic font-semibold text-gray-600 text-balance scroll-m-32 md:scroll-m-4;
 }
 
 .tiptap p {
@@ -86,7 +88,7 @@ li::marker {
 }
 
 .tiptap.ProseMirror img.ProseMirror-selectednode {
-    @apply inset-0 select-none ;
+    @apply inset-0 select-none;
 }
 
 .tiptap pre {
@@ -240,5 +242,3 @@ li::marker {
 .connection-view span {
     @apply px-1 text-gray-100
 }
-
-

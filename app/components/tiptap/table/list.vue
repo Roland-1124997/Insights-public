@@ -18,12 +18,6 @@
 		Anchors: any[];
 	}>();
 
-	const onItemClick = (node: any) => {
-		const element = document.getElementById(node.id);
+	const { onItemClick } = useScrollToNode(activeId);
 
-		if (element) {
-			element.scrollIntoView({ behavior: "smooth", block: "start" });
-			activeId.value = node.id;
-		}
-	};
 </script>

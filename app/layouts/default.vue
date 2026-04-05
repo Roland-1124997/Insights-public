@@ -1,5 +1,5 @@
 <template>
-	<div class="relative w-full overflow-x-hidden isolate">
+	<div class="relative w-full">
 		<UtilsNavigation />
 
 		<ClientOnly>
@@ -8,7 +8,7 @@
 			</div>
 		</ClientOnly>
 
-		<main class="relative z-30 flex-1 overflow-x-hidden overflow-y-auto">
+		<main class="">
 			<div class="z-30 mx-auto">
 				<slot></slot>
 			</div>

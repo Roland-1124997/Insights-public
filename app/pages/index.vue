@@ -1,5 +1,5 @@
 <template>
-	<div class="relative z-20 mt-[5.7rem] lg:mt-16 xl:mt-28">
+	<div class="mt-6 md:mt-16">
 		<section class="relative overflow-hidden rounded-[2rem] px-8 py-8 xl:px-24 mb-5">
 			<article class="relative z-10 grid items-center md:grid-cols-[1.8fr_0.55fr]">
 				<div class="space-y-5">

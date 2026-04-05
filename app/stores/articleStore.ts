@@ -3,7 +3,8 @@ const toSlug = (title: string) => {
         .replace(/\s*-\s*/g, "-")
         .replace(/\s+/g, "-")
         .replace(/[^A-Za-z0-9-]/g, "")
-        .replace(/-+/g, "-");
+        .replace(/-+/g, "-")
+        .toLowerCase();
 };
 
 const toAbsoluteAttachmentUrl = (value?: string) => {
