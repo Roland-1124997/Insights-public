@@ -24,6 +24,7 @@ export default defineNuxtConfig({
   }, 
 
   app: {
+    pageTransition: { name: 'fade', mode: 'out-in' },
     head: {
       link: [
         { rel: "icon", href: "https://dashboard.roland-meijer.nl/favicon.ico", sizes: "48x48" },
