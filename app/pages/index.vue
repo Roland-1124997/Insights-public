@@ -38,53 +38,55 @@
 			</article>
 		</section>
 
-		<section v-for="(item, index) in article.result" :key="item.title" class="relative py-6 pl-6 pr-4 overflow-hidden sm:pr-6 sm:pl-14 xl:px-24" :class="index % 2 === 0 ? 'bg-blue-800' : 'bg-blue-700'">
-			<div class="absolute inset-y-0 z-20 items-center hidden pt-10 pointer-events-none left-3 md:flex">
-				<div class="flex h-[92%] flex-col items-center justify-between pl-2">
-					<span class="text-base font-semibold uppercase tracking-[0.2em] text-blue-100/75 [writing-mode:vertical-rl] rotate-180">
-						<NuxtTime :datetime="item.updated_at" year="numeric" month="2-digit" day="2-digit" hour="numeric" minute="numeric" class="font-semibold uppercase tracking-[0.2em] text-blue-100/75 [writing-mode:vertical-rl] rotate-180" />
-					</span>
-					<span class="mb-[2.8rem] text-4xl font-black leading-none text-blue-100/85">{{ item.words }}</span>
+		<ClientOnly>
+			<section v-for="(item, index) in article.result" :key="item.title" class="relative py-6 pl-6 pr-4 overflow-hidden sm:pr-6 sm:pl-14 xl:px-24" :class="index % 2 === 0 ? 'bg-blue-800' : 'bg-blue-700'">
+				<div class="absolute inset-y-0 z-20 items-center hidden pt-10 pointer-events-none left-3 md:flex">
+					<div class="flex h-[92%] flex-col items-center justify-between pl-2">
+						<span class="text-base font-semibold uppercase tracking-[0.2em] text-blue-100/75 [writing-mode:vertical-rl] rotate-180">
+							<NuxtTime :datetime="item.updated_at" year="numeric" month="2-digit" day="2-digit" hour="numeric" minute="numeric" class="font-semibold uppercase tracking-[0.2em] text-blue-100/75 [writing-mode:vertical-rl] rotate-180" />
+						</span>
+						<span class="mb-[2.8rem] text-4xl font-black leading-none text-blue-100/85">{{ item.words }}</span>
+					</div>
 				</div>
-			</div>
 
-			<article class="relative z-10 p-2 sm:p-4 md:p-6">
-				<div class="grid items-center gap-8 md:grid-cols-[0.95fr_1.05fr] md:gap-16">
-					<div class="relative flex flex-col gap-5 text-left" :class="index % 2 === 0 ? 'md:order-1' : 'md:order-2'">
-						<div class="flex items-center gap-3">
-							<span class="text-xs font-semibold uppercase tracking-[0.26em] text-blue-100/90">Project</span>
-							<span class="flex-1 hidden h-px bg-blue-100/20 sm:block"></span>
-						</div>
+				<article class="relative z-10 p-2 sm:p-4 md:p-6">
+					<div class="grid items-center gap-8 md:grid-cols-[0.95fr_1.05fr] md:gap-16">
+						<div class="relative flex flex-col gap-5 text-left" :class="index % 2 === 0 ? 'md:order-1' : 'md:order-2'">
+							<div class="flex items-center gap-3">
+								<span class="text-xs font-semibold uppercase tracking-[0.26em] text-blue-100/90">Project</span>
+								<span class="flex-1 hidden h-px bg-blue-100/20 sm:block"></span>
+							</div>
 
-						<h2 class="text-3xl font-black text-blue-50 sm:text-4xl">
-							<span>{{ item.title }}</span>
-						</h2>
+							<h2 class="text-3xl font-black text-blue-50 sm:text-4xl">
+								<span>{{ item.title }}</span>
+							</h2>
 
-						<div class="flex flex-wrap gap-x-4 gap-y-2 text-xs font-semibold uppercase tracking-[0.08em] text-blue-100/95 md:text-sm">
-							<div v-for="value in item.topics" :key="value" class="flex items-center gap-2">
-								<span class="size-1.5 bg-blue-100/80"></span>
-								<span>{{ value }}</span>
+							<div class="flex flex-wrap gap-x-4 gap-y-2 text-xs font-semibold uppercase tracking-[0.08em] text-blue-100/95 md:text-sm">
+								<div v-for="value in item.topics" :key="value" class="flex items-center gap-2">
+									<span class="size-1.5 bg-blue-100/80"></span>
+									<span>{{ value }}</span>
+								</div>
+							</div>
+
+							<p class="max-w-2xl text-base leading-7 line-clamp-3 md:line-clamp-5 text-blue-50/85 sm:text-lg">
+								{{ item.description }}
+							</p>
+
+							<div class="flex items-center gap-2 pt-1">
+								<UtilsButtonImportant :to="`/${article.toSlug(item.title)}`" :reverse="true" description="Meer informatie" iconName="akar-icons:eye" />
+								<UtilsButtonImportant v-if="user.success" :to="`https://dashboard.roland-meijer.nl/artikelen/opstellen?edit=${item.id}`" :reverse="true" target="_blank" :hidden="true" iconName="akar-icons:edit" />
 							</div>
 						</div>
 
-						<p class="max-w-2xl text-base leading-7 line-clamp-3 md:line-clamp-5 text-blue-50/85 sm:text-lg">
-							{{ item.description }}
-						</p>
-
-						<div class="flex items-center gap-2 pt-1">
-							<UtilsButtonImportant :to="`/${article.toSlug(item.title)}`" :reverse="true" description="Meer informatie" iconName="akar-icons:eye" />
-							<UtilsButtonImportant v-if="user.success" :to="`https://dashboard.roland-meijer.nl/artikelen/opstellen?edit=${item.id}`" :reverse="true" target="_blank" :hidden="true" iconName="akar-icons:edit" />
+						<div class="justify-center hidden md:flex" :class="index % 2 === 0 ? 'md:order-2' : 'md:order-1'">
+							<div class="w-full max-w-xl overflow-hidden border-4 rounded-lg border-blue-200/20">
+								<UtilsDesktopMockup :src="item.thumbnail_url" :alt="item.title" class="w-full h-full min-h-[220px] object-cover" loading="lazy" />
+							</div>
 						</div>
 					</div>
-
-					<div class="justify-center hidden md:flex" :class="index % 2 === 0 ? 'md:order-2' : 'md:order-1'">
-						<div class="w-full max-w-xl overflow-hidden border-4 rounded-lg border-blue-200/20">
-							<UtilsDesktopMockup :src="item.thumbnail_url" :alt="item.title" class="w-full h-full min-h-[220px] object-cover" loading="lazy" />
-						</div>
-					</div>
-				</div>
-			</article>
-		</section>
+				</article>
+			</section>
+		</ClientOnly>
 	</div>
 </template>
 
