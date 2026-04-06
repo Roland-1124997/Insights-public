@@ -24,5 +24,4 @@
 	await articles.init();
 	await profile.init();
 	await user.init();
-	
 </script>
