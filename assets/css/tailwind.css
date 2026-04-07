@@ -70,9 +70,6 @@ li::marker {
     @apply text-base;
 }
 
-.viewer p {
-    @apply text-base text-balance;
-}
 
 .tiptap ul {
     @apply pl-5 list-disc list-outside;
@@ -83,7 +80,7 @@ li::marker {
 }
 
 .tiptap img {
-    @apply w-[99%] m-auto ring-2 ring-offset-2 my-6 ring-gray-200 rounded-lg bg-gray-50 md:min-h-[20vh];
+    @apply w-[99%] m-auto ring-2 ring-offset-2 my-8 last:mb-10 ring-gray-200 rounded-lg bg-gray-50 md:min-h-[20vh];
 }
 
 .tiptap.ProseMirror img.ProseMirror-selectednode {
@@ -212,22 +209,6 @@ li::marker {
 
 .tiptap .details .details {
     @apply my-2;
-}
-
-.viewer a {
-    @apply text-[#1d4ed8] text-lg underline truncate;
-}
-
-.viewer .p2 {
-    @apply hidden;
-}
-
-.viewer ul {
-    @apply pl-5 list-disc list-outside;
-}
-
-.viewer ol {
-    @apply pl-6 list-decimal list-outside;
 }
 
 .connection-view {
