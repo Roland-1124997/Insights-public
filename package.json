@@ -1,52 +1,52 @@
 {
-  "name": "nuxt-app",
-  "type": "module",
-  "private": true,
-  "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev --port 4000 --host",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
-  },
-  "dependencies": {
-    "@nuxt/fonts": "^0.14.0",
-    "@nuxt/image": "^2.0.0",
-    "@pinia/nuxt": "^0.11.3",
-    "@takumi-rs/core": "^1.0.0-rc.14",
-    "@tiptap/extension-code-block-lowlight": "^3.11.0",
-    "@tiptap/extension-details": "^3.11.0",
-    "@tiptap/extension-document": "^3.11.0",
-    "@tiptap/extension-drag-handle": "^3.11.0",
-    "@tiptap/extension-drag-handle-vue-3": "^3.11.0",
-    "@tiptap/extension-file-handler": "^3.11.0",
-    "@tiptap/extension-highlight": "^3.10.2",
-    "@tiptap/extension-image": "^3.11.0",
-    "@tiptap/extension-link": "^3.10.2",
-    "@tiptap/extension-node-range": "^3.11.0",
-    "@tiptap/extension-table-of-contents": "^3.11.0",
-    "@tiptap/extension-underline": "^3.10.2",
-    "@tiptap/extensions": "^3.11.0",
-    "@tiptap/html": "^3.10.4",
-    "@tiptap/pm": "^3.10.2",
-    "@tiptap/starter-kit": "^3.10.2",
-    "@tiptap/vue-3": "^3.10.2",
-    "@tiptap/y-tiptap": "^3.0.1",
-    "nuxt": "^4.4.8",
-    "nuxt-umami": "^3.2.1",
-    "vue": "^3.5.31",
-    "vue-router": "^5.0.4"
-  },
-  "devDependencies": {
-    "@iconify-json/akar-icons": "^1.2.7",
-    "@nuxt/icon": "^2.2.1",
-    "@nuxtjs/tailwindcss": "^6.14.0",
-    "@types/node": "^25.5.2",
-    "nuxt-og-image": "^6.3.2",
-    "tailwindcss": "3.4.19"
-  },
-  "overrides": {
-    "tailwindcss": "3.4.19",
-    "esbuild": "^0.28.1"
-  }
+	"name": "nuxt-app",
+	"type": "module",
+	"private": true,
+	"scripts": {
+		"build": "nuxt build",
+		"dev": "nuxt dev --port 4000 --host",
+		"generate": "nuxt generate",
+		"preview": "nuxt preview",
+		"postinstall": "nuxt prepare"
+	},
+	"dependencies": {
+		"@nuxt/fonts": "^0.14.0",
+		"@nuxt/image": "^2.0.0",
+		"@pinia/nuxt": "^0.11.3",
+		"@takumi-rs/core": "^1.0.0-rc.14",
+		"@tiptap/extension-code-block-lowlight": "^3.11.0",
+		"@tiptap/extension-details": "^3.11.0",
+		"@tiptap/extension-document": "^3.11.0",
+		"@tiptap/extension-drag-handle": "^3.11.0",
+		"@tiptap/extension-drag-handle-vue-3": "^3.11.0",
+		"@tiptap/extension-file-handler": "^3.11.0",
+		"@tiptap/extension-highlight": "^3.10.2",
+		"@tiptap/extension-image": "^3.11.0",
+		"@tiptap/extension-link": "^3.10.2",
+		"@tiptap/extension-node-range": "^3.11.0",
+		"@tiptap/extension-table-of-contents": "^3.11.0",
+		"@tiptap/extension-underline": "^3.10.2",
+		"@tiptap/extensions": "^3.11.0",
+		"@tiptap/html": "^3.10.4",
+		"@tiptap/pm": "^3.27.1",
+		"@tiptap/starter-kit": "^3.27.1",
+		"@tiptap/vue-3": "^3.27.1",
+		"@tiptap/y-tiptap": "^3.0.1",
+		"nuxt": "^4.4.8",
+		"nuxt-umami": "^3.2.1",
+		"vue": "^3.5.31",
+		"vue-router": "^5.0.4"
+	},
+	"devDependencies": {
+		"@iconify-json/akar-icons": "^1.2.7",
+		"@nuxt/icon": "^2.2.1",
+		"@nuxtjs/tailwindcss": "^6.14.0",
+		"@types/node": "^25.5.2",
+		"nuxt-og-image": "^6.3.2",
+		"tailwindcss": "3.4.19"
+	},
+	"overrides": {
+		"tailwindcss": "3.4.19",
+		"esbuild": "^0.28.1"
+	}
 }
