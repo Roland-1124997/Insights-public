@@ -4,7 +4,12 @@
 			<article class="relative z-10 grid items-center md:grid-cols-[1.8fr_0.55fr]">
 				<div class="space-y-5">
 					<h1 class="mt-6 text-4xl font-extrabold leading-[0.9] text-blue-950 sm:text-5xl md:text-7xl">
-						{{ profile.result.algemeen.tile }}
+						{{ profile.result.algemeen.title }}
+						<span v-if="user.success">
+							<NuxtLink target="_blank" to="https://dashboard.roland-meijer.nl/portfolio">
+								<Icon name="akar-icons:edit" class="w-6 h-6 -ml-1 text-blue-900 cursor-pointer xl:-ml-3" />
+							</NuxtLink>
+						</span>
 					</h1>
 
 					<div class="flex items-center gap-2 font-semibold text-blue-900 md:text-lg">
