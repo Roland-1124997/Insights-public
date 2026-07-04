@@ -2,7 +2,8 @@
 	<div class="">
 		<section class="z-20 md:pl-[4.7rem] md:pr-[3.5rem] md:p-3">
 			<article class="relative xl:-mt-5 md:p-3">
-				<div ref="tiptap_container" v-if="editor" class="grid w-full gap-3 overflow-y-scroll md:h-[86.6vh] md:grid-cols-[1.009fr_0.45fr]">
+				<div ref="tiptap_container" v-if="editor"
+					class="grid w-full gap-3 overflow-y-scroll md:h-[86.6vh] md:grid-cols-[1.009fr_0.45fr]">
 
 					<div class="px-6 pt-8 bg-white md:px-24 md:pt-10">
 						<TiptapEditor :editor="editor" aria-label="Artkel inhoud" />
@@ -27,7 +28,14 @@
 	const result = article.getBySlug(slug);
 
 	const tiptapContainer = useTemplateRef("tiptap_container");
-	
+
+	if (!result) {
+		throw createError({
+			status: 404,
+			statusText: "Pagina niet gevonden",
+		});
+	}
+
 	const seoTitle = `Insights - ${result?.title ?? "Artikel"}`;
 	const seoDescription = result?.description.slice(0, 155) ?? "Lees dit artikel.";
 	const seoImage = result?.thumbnail_url ?? "/icons/icon_512-blue.png";
@@ -35,7 +43,7 @@
 
 	const image = useState(`article-${slug}-image`, () => seoImage);
 
-	if(import.meta.server) {
+	if (import.meta.server) {
 		image.value = defineOgImage("Article.takumi", {
 			title: result?.title ?? "Artikel",
 			category: result?.topics.slice(-4) ?? ["Algemeen"],

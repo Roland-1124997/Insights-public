@@ -11,7 +11,7 @@
 		</div>
 
 		<div class="flex items-center gap-2">
-			<span v-for="value in profile.result.algemeen.contact" :key="value.label">
+			<span v-for="value in profile?.result?.algemeen?.contact" :key="value.label">
 				<UtilsButtonImportant v-if="value.hidden" target="_blank" :eventName="value.eventName" :hidden="true" :to="value.url" :description="value.label" :iconName="value.iconName" />
 			</span>
 
