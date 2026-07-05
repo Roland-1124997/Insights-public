@@ -28,7 +28,8 @@
                             </p>
 
                             <div class="flex items-center justify-center gap-4 pt-4">
-                                <UtilsButtonImportant event-name="button-click-from-error" icon-name="akar-icons:home-alt1" description="Terug naar home"
+                                <UtilsButtonImportant event-name="button-click-from-error"
+                                    icon-name="akar-icons:home-alt1" description="Terug naar home"
                                     @click="handleError" />
                             </div>
                         </article>
@@ -41,6 +42,16 @@
 
 <script setup lang="ts">
     const error = useError();
+
+    onMounted(() => {
+        umTrackEvent("error_page_view", {
+            status: error.value?.status ?? 500,
+            statusText: error.value?.statusText ?? "Unknown Error",
+            stack: error.value?.stack ?? "No stack trace available",
+            cause: error.value?.cause ?? "No cause available",
+            url: window.location.href,
+        });
+    })
 
     const statusCode = error.value?.status ?? 500;
     const statusText = statusCode === 404 ? "Pagina niet gevonden" : "Er is iets misgegaan";

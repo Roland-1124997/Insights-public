@@ -29,7 +29,7 @@
 
 	const tiptapContainer = useTemplateRef("tiptap_container");
 
-	if (!result) throw createError({ status: 404 });
+	if (!result) throw createError({ status: 404, statusText: "Page not found", });
 	else onMounted(() => { umTrackView() });
 	
 	const seoTitle = `Insights - ${result?.title ?? "Artikel"}`;
