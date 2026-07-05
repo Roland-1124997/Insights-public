@@ -43,7 +43,7 @@
     const error = useError();
 
     const statusCode = error.value?.status ?? 500;
-    const statusText = error.value?.statusText ?? "Er is iets misgegaan";
+    const statusText = statusCode === 404 ? "Pagina niet gevonden" : "Er is iets misgegaan";
 
     const statusSuggestion = statusCode === 404 ?
         "De pagina die je zoekt bestaat niet of is verplaatst. Geen zorgen, je kunt teruggaan naar de homepagina."

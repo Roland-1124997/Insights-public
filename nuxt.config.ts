@@ -8,11 +8,12 @@ export default defineNuxtConfig({
     id: process.env.UMAMI_ID,
     host: process.env.UMAMI_HOST,
     useDirective: true,
-    autoTrack: true,
+    autoTrack: false,
     enabled: true,
     proxy: "cloak",
     ignoreLocalhost: true,
     urlOptions: {
+      trailingSlash: "never",
       excludeSearch: true,
       excludeHash: true,
     },

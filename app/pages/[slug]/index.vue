@@ -29,13 +29,9 @@
 
 	const tiptapContainer = useTemplateRef("tiptap_container");
 
-	if (!result) {
-		throw createError({
-			status: 404,
-			statusText: "Pagina niet gevonden",
-		});
-	}
-
+	if (!result) throw createError({ status: 404 });
+	else onMounted(() => { umTrackView() });
+	
 	const seoTitle = `Insights - ${result?.title ?? "Artikel"}`;
 	const seoDescription = result?.description.slice(0, 155) ?? "Lees dit artikel.";
 	const seoImage = result?.thumbnail_url ?? "/icons/icon_512-blue.png";

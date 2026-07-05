@@ -131,6 +131,7 @@
 	const updateAnimate = () => (animate.value = isDesktopViewport());
 
 	onMounted(() => {
+		umTrackView()
 		updateAnimate();
 		window.addEventListener("resize", updateAnimate);
 	});
