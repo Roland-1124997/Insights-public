@@ -78,8 +78,8 @@
 							</p>
 
 							<div class="flex items-center gap-2 pt-1">
-								<UtilsButtonImportant :to="`/${article.toSlug(item.title)}`" :reverse="true" description="Meer informatie" iconName="akar-icons:eye" />
-								<UtilsButtonImportant v-if="user.success" :to="`https://dashboard.roland-meijer.nl/artikelen/opstellen?edit=${item.id}`" :reverse="true" target="_blank" :hidden="true" iconName="akar-icons:edit" />
+								<UtilsButtonImportant :to="`/${article.toSlug(item.title)}`" :reverse="true" description="Meer informatie" iconName="akar-icons:eye" eventName="button-click-to-artikel" />
+								<UtilsButtonImportant v-if="user.success" :to="`https://dashboard.roland-meijer.nl/artikelen/opstellen?edit=${item.id}`" :reverse="true" target="_blank" :hidden="true" iconName="akar-icons:edit" event-name="button-click-to-edit-page" />
 							</div>
 						</div>
 
