@@ -5,7 +5,7 @@
 				<div ref="tiptap_container" v-if="editor"
 					class="grid w-full gap-3 overflow-y-scroll md:h-[86.6vh] md:grid-cols-[1.009fr_0.45fr]">
 
-					<div class="px-6 pt-8 bg-white md:px-24 md:pt-10">
+					<div :class="shouldAddPadding() ? 'pb-16' : ''" class="px-6 pt-8 bg-white md:px-24 md:pt-10">
 						<TiptapEditor :editor="editor" aria-label="Artkel inhoud" />
 					</div>
 
@@ -132,6 +132,8 @@
 	};
 
 	const editor = shallowRef<Editor | null>(null);
+
+	const shouldAddPadding = () => (result.content.content.slice(-1)[0].type === "paragraph" && result.content.content.length >= 6) ? true : false;
 
 	const createEditor = () => {
 		const previousEditor = editor.value;
