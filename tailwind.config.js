@@ -2,4 +2,11 @@
 
 export default {
 	content: [],
+	theme: {
+		extend: {
+			fontFamily: {
+				custom: ["Livvic"],
+			},
+		},
+	},
 };

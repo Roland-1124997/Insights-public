@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 * {
-    font-family: "Livvic"
+    font-family: "Livvic", "sans-serif" !important;
 }
 
 ::-webkit-scrollbar {
