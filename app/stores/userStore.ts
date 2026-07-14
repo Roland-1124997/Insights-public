@@ -1,4 +1,3 @@
-
 export const useUser = defineStore("useUser", () => {
 	const url = "/api/user";
 	const Request = useApiHandler(url);
@@ -23,7 +22,11 @@ export const useUser = defineStore("useUser", () => {
 		const { data, error: err } = (await useFetch(url)) as any;
 
 		if (err.value) success.value = false;
-		else success.value = data.value.data;
+		else {
+			success.value = data.value.data;
+			window.localStorage.setItem("umami.disabled", "1");
+		}
+
 	};
 
 	return {
