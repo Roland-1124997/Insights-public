@@ -6,8 +6,6 @@ import { Editor } from "@tiptap/core";
 import Highlight from "@tiptap/extension-highlight";
 import Document from "@tiptap/extension-document";
 import Image from "@tiptap/extension-image";
-
-
 //--------------------------------------------------------------------------------------------
 
 const lowlight = createLowlight(all);
@@ -56,24 +54,6 @@ const articleDocument = Document.extend({
 
 //--------------------------------------------------------------------------------------------
 
-const starterKit = StarterKit.configure({
-	link: false,
-	underline: false,
-	trailingNode: false,
-	codeBlock: false,
-	code: false,
-	bulletList: {
-		HTMLAttributes: {
-			style: "padding-left: 1.25rem; list-style-type: disc; list-style-position: outside;",
-		},
-	},
-	orderedList: {
-		HTMLAttributes: {
-			style: "padding-left: 1.5rem; list-style-type: decimal; list-style-position: outside;",
-		},
-	},
-});
-
 const articleStarterKit = StarterKit.configure({
 	underline: false,
 	document: false,
@@ -94,12 +74,6 @@ const articleStarterKit = StarterKit.configure({
 });
 
 //--------------------------------------------------------------------------------------------
-
-const placeholder = Placeholder.configure({
-	placeholder: () => {
-		return `Begin je bericht hier...`;
-	},
-});
 
 const artcilePlaceholder = Placeholder.configure({
 	placeholder: ({ node }) => {
