@@ -24,7 +24,8 @@ export const useUser = defineStore("useUser", () => {
 		if (err.value) success.value = false;
 		else {
 			success.value = data.value.data;
-			window.localStorage.setItem("umami.disabled", "1");
+
+			if(import.meta.client) window.localStorage.setItem("umami.disabled", "1");
 		}
 
 	};
