@@ -9,13 +9,20 @@ export default defineNuxtConfig({
 		host: process.env.UMAMI_HOST,
 		useDirective: true,
 		autoTrack: false,
-		enabled: true,
+		enabled: false,
 		proxy: "cloak",
 		ignoreLocalhost: true,
 		urlOptions: {
 			trailingSlash: "never",
 			excludeSearch: true,
 			excludeHash: true,
+		},
+	},
+
+	runtimeConfig: {
+		logging: {
+			include: ["/api/**", "/**"],
+			exclude: ["/api/user", "/_"],
 		},
 	},
 
