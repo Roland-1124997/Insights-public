@@ -22,7 +22,7 @@ export default defineNuxtConfig({
 	runtimeConfig: {
 		logging: {
 			include: ["/api/**", "/**"],
-			exclude: ["/api/user", "/_"],
+			exclude: ["/api/status", "/_"],
 		},
 	},
 
