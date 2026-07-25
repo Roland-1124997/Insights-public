@@ -9,7 +9,7 @@ export default defineNuxtConfig({
 		host: process.env.UMAMI_HOST,
 		useDirective: true,
 		autoTrack: false,
-		enabled: true,
+		enabled: false,
 		proxy: "cloak",
 		ignoreLocalhost: true,
 		urlOptions: {
@@ -21,8 +21,9 @@ export default defineNuxtConfig({
 
 	runtimeConfig: {
 		logging: {
+			limit: 10,
 			include: ["/api/**", "/**"],
-			exclude: ["/api/status", "/_"],
+			exclude: ["/api/status", "/_", "/.well-known"],
 		},
 	},
 
