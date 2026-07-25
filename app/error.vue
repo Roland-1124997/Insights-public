@@ -28,7 +28,7 @@
                             </p>
 
                             <div class="flex items-center justify-center gap-4 pt-4">
-                                <UtilsButtonImportant event-name="button-click-from-error"
+                                <UtilsButtonImportant event-name="button_click_from_error"
                                     icon-name="akar-icons:home-alt1" description="Terug naar home"
                                     @click="handleError" />
                             </div>
