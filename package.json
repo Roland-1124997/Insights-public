@@ -13,6 +13,7 @@
 	"dependencies": {
 		"@nuxt/fonts": "^0.14.0",
 		"@nuxt/image": "^2.0.0",
+		"@nuxtjs/sitemap": "^8.3.0",
 		"@pinia/nuxt": "^0.11.3",
 		"@takumi-rs/core": "^1.0.0-rc.14",
 		"@tiptap/extension-code-block-lowlight": "^3.11.0",
