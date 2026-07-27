@@ -35,7 +35,7 @@
 		"@tiptap/vue-3": "^3.27.1",
 		"@tiptap/y-tiptap": "^3.0.1",
 		"nitropack": "^2.13.4",
-		"nuxt": "^4.5.0",
+		"nuxt": "^4.5.1",
 		"nuxt-umami": "^3.2.1",
 		"vue": "^3.5.31",
 		"vue-router": "^5.0.4"
@@ -53,5 +53,9 @@
 		"esbuild": "^0.28.1",
 		"brace-expansion": "^5.0.8",
 		"sharp": "^0.35.0"
+	},
+	"allowScripts": {
+		"esbuild@0.28.1": true,
+		"@parcel/watcher@2.5.6": true
 	}
 }
