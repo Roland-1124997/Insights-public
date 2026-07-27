@@ -92,7 +92,7 @@
 						</p>
 
 						<div class="flex items-center gap-2 pt-1">
-							<UtilsButtonImportant :to="`/${article.toSlug(item.title)}`" :reverse="true"
+							<UtilsButtonImportant :to="`/blog-${article.toSlug(item.title)}`" :reverse="true"
 								description="Meer informatie" iconName="akar-icons:eye"
 								eventName="button_click_to_artikel" />
 							<UtilsButtonImportant v-if="user.success"

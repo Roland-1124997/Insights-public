@@ -30,7 +30,7 @@ export default defineSitemapEventHandler(async () => {
 		.then((response: any) => {
 			return response.data.map((article: any) => {
 				return {
-					loc: `/${toSlug(article.title)}`,
+					loc: `/blog-${toSlug(article.title)}`,
 					lastmod: article.updated_at,
 					images: getImageCountFromContent(article.content),
 					changefreq: "monthly",
