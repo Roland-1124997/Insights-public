@@ -1,7 +1,7 @@
 import { blockImages } from "#shared/utils/extensions";
 import { nodeView } from "#shared/utils/connection";
 import { Selection } from "@tiptap/extensions";
-import { Editor } from "@tiptap/core";
+import { topicsView } from "#shared/utils/topics";
 
 import Highlight from "@tiptap/extension-highlight";
 import Document from "@tiptap/extension-document";
@@ -115,6 +115,7 @@ export const articleExtensions = [
 	details,
 	nodeView,
 	blockImages,
+	topicsView,
 	DetailsSummary,
 	DetailsContent,
 	codelowBlock,
