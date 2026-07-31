@@ -16,7 +16,11 @@ html {
 }
 
 .topics-view {
-    @apply px-3 py-1 text-xs font-bold text-blue-800 border border-blue-600 rounded-full;
+    @apply px-3 py-2 text-xs font-bold text-blue-800 border border-blue-600 rounded-full;
+}
+
+.github-view {
+    @apply px-3 py-2 text-xs font-bold text-blue-800 border border-blue-600 rounded-full hover:bg-blue-50;
 }
 
 

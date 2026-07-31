@@ -1,7 +1,7 @@
 import { blockImages } from "#shared/utils/extensions";
-import { nodeView } from "#shared/utils/connection";
 import { Selection } from "@tiptap/extensions";
 import { topicsView } from "#shared/utils/topics";
+import { githubView } from "~~/shared/utils/github";
 
 import Highlight from "@tiptap/extension-highlight";
 import Document from "@tiptap/extension-document";
@@ -113,7 +113,7 @@ const artcilePlaceholder = Placeholder.configure({
 
 export const articleExtensions = [
 	details,
-	nodeView,
+	githubView,
 	blockImages,
 	topicsView,
 	DetailsSummary,
