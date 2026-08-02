@@ -1,6 +1,5 @@
 import { blockImages } from "#shared/utils/extensions";
 import { Selection } from "@tiptap/extensions";
-import { topicsView } from "#shared/utils/topics";
 import { githubView } from "~~/shared/utils/github";
 
 import Highlight from "@tiptap/extension-highlight";
@@ -56,24 +55,6 @@ const articleDocument = Document.extend({
 
 //--------------------------------------------------------------------------------------------
 
-const starterKit = StarterKit.configure({
-	link: false,
-	underline: false,
-	trailingNode: false,
-	codeBlock: false,
-	code: false,
-	bulletList: {
-		HTMLAttributes: {
-			style: "padding-left: 1.25rem; list-style-type: disc; list-style-position: outside;",
-		},
-	},
-	orderedList: {
-		HTMLAttributes: {
-			style: "padding-left: 1.5rem; list-style-type: decimal; list-style-position: outside;",
-		},
-	},
-});
-
 const articleStarterKit = StarterKit.configure({
 	underline: false,
 	document: false,
@@ -95,12 +76,6 @@ const articleStarterKit = StarterKit.configure({
 
 //--------------------------------------------------------------------------------------------
 
-const placeholder = Placeholder.configure({
-	placeholder: () => {
-		return `Begin je bericht hier...`;
-	},
-});
-
 const artcilePlaceholder = Placeholder.configure({
 	placeholder: ({ node }) => {
 		if (node.type.name === "heading") return "Schrijf hier je titel...";
@@ -115,7 +90,6 @@ export const articleExtensions = [
 	details,
 	githubView,
 	blockImages,
-	topicsView,
 	DetailsSummary,
 	DetailsContent,
 	codelowBlock,
