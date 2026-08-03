@@ -88,7 +88,7 @@ li::marker {
 }
 
 .tiptap img {
-    @apply w-[99%] m-auto ring-2 ring-offset-2 my-8 last:mb-16 ring-gray-200 rounded-lg bg-gray-50 md:min-h-[20vh];
+    @apply w-[99%] m-auto my-8 last:mb-10 rounded-lg border bg-gray-50 object-cover aspect-video;
 }
 
 .tiptap.ProseMirror img.ProseMirror-selectednode {
