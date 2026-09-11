@@ -60,7 +60,6 @@
 							hour="numeric" minute="numeric"
 							class="font-semibold uppercase tracking-[0.2em] text-blue-100/75 [writing-mode:vertical-rl] rotate-180" />
 					</span>
-					<span class="mb-[2.8rem] text-4xl font-black leading-none text-blue-100/85">{{ item.words }}</span>
 				</div>
 			</div>
 
