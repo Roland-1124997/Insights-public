@@ -5,7 +5,7 @@
 				<div ref="tiptap_container" v-if="editor"
 					class="grid w-full gap-3 overflow-y-scroll md:h-[86.6vh] md:grid-cols-[1.009fr_0.45fr]">
 
-					<div :class="shouldAddPadding() ? 'pb-16' : ''" class="px-6 pt-8 bg-white md:px-24 md:pt-10">
+					<div :class="shouldAddPadding() ? 'pb-16' : ''" class="px-6 pt-8 bg-gray-50 md:px-24 md:pt-10">
 						<TiptapEditor :editor="editor" aria-label="Artkel inhoud" />
 					</div>
 

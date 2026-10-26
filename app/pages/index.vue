@@ -104,7 +104,7 @@
 					<div class="justify-center hidden md:flex" :class="index % 2 === 0 ? 'md:order-2' : 'md:order-1'">
 						<div class="w-full max-w-xl overflow-hidden border-4 rounded-lg border-blue-200/20">
 							<UtilsDesktopMockup :src="item.thumbnail_url" :alt="item.title"
-								class="w-full h-full min-h-[220px] object-cover" loading="lazy" />
+								class="w-full h-full min-h-[220px] object-contain" loading="lazy" />
 						</div>
 					</div>
 				</div>
