@@ -35,7 +35,7 @@
 		"@tiptap/vue-3": "^3.31.3",
 		"@tiptap/y-tiptap": "^3.0.9",
 		"nitropack": "^2.13.4",
-		"nuxt": "^4.5.2",
+		"nuxt": "^4.6.4",
 		"nuxt-umami": "^3.2.1",
 		"vue": "^3.5.31",
 		"vue-router": "^5.0.4"
@@ -51,7 +51,9 @@
 	"overrides": {
 		"tailwindcss": "3.4.19",
 		"esbuild": "^0.28.2",
-		"maplibre-gl": "^6.4.1"
+		"maplibre-gl": "^6.4.1",
+		"minimatch": "^11.0.1",
+		"happy-dom": "^21.0.4"
 	},
 	"allowScripts": {
 		"esbuild@0.28.2": true,
