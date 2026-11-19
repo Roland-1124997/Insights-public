@@ -2,6 +2,8 @@
 export default defineNuxtConfig({
 	compatibilityDate: "2025-07-15",
 	devtools: { enabled: true },
+
+	extends: ["github:Roland-1124997/insights-logging#master"],
 	modules: ["@nuxtjs/tailwindcss", "@nuxt/icon", "@nuxt/image", "@pinia/nuxt", "nuxt-umami", "@nuxt/fonts", "nuxt-og-image", "@nuxtjs/sitemap"],
 
 	umami: {
@@ -21,13 +23,7 @@ export default defineNuxtConfig({
 
 	runtimeConfig: {
 		logging: {
-			limit: 20,
-			fail2ban: {
-				window: 60 * 1000,
-				duration: 10 * 60 * 1000,
-			},
 			include: ["/api/**", "/**"],
-			exclude: ["/api/status", "/_", "/.well-known"],
 		},
 	},
 
